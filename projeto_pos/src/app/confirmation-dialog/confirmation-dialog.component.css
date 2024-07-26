@@ -1,0 +1,12 @@
+.modal-wrapper {
+  height: 20vh;
+  width: 19vw;
+  padding: 30px;
+}
+
+.buttons-wrapper {
+  margin-top: 10px;
+  display: flex;
+  /* gap: 20px; */
+  justify-content: space-around;
+}
