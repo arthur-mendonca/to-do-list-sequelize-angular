@@ -4,11 +4,12 @@ import { Router } from "@angular/router";
 import { Todo } from "../todo.model";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { MaterialModule } from "../material.module";
 
 @Component({
   selector: "app-todo-create",
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, MaterialModule],
   templateUrl: "./todo-create.component.html",
   styleUrls: ["./todo-create.component.css"],
 })
