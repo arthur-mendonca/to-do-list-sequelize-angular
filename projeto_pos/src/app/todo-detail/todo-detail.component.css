@@ -1,0 +1,20 @@
+.mat-card-wrapper {
+  height: 35vh;
+  width: 45vw;
+  margin: 0 auto;
+
+  position: relative !important;
+  top: 150px !important;
+  overflow: auto;
+
+  padding: 30px;
+}
+
+.form-component {
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-button {
+  margin-top: 20px;
+}
