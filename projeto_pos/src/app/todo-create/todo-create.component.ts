@@ -1,22 +1,34 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { TodoService } from "../todo.service";
 import { Router } from "@angular/router";
+import { Todo } from "../todo.model";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-todo-create",
   standalone: true,
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: "./todo-create.component.html",
-  styleUrl: "./todo-create.component.css",
+  styleUrls: ["./todo-create.component.css"],
 })
-export class TodoCreateComponent {
-  todo: any = {};
+export class TodoCreateComponent implements OnInit {
+  todo: Todo = new Todo();
 
   constructor(private todoService: TodoService, private router: Router) {}
 
+  ngOnInit(): void {
+    console.log("TodoCreateComponent initialized");
+  }
+
   createTodo(): void {
-    this.todoService.createTodo(this.todo).subscribe(() => {
-      this.router.navigate(["/todos"]);
-    });
+    this.todoService.createTodo(this.todo).subscribe(
+      (response) => {
+        this.router.navigate(["/"]);
+      },
+      (error) => {
+        console.log("Error ao criar To-do", error);
+      }
+    );
   }
 }

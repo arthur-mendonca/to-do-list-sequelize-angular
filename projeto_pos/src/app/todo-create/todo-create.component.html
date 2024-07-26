@@ -1,1 +1,18 @@
-<p>todo-create works!</p>
+<h2>Create new To-Do</h2>
+<form (ngSubmit)="createTodo()" #todoForm="ngForm">
+  <div>
+    <label for="task">Task:</label>
+    <input
+      type="text"
+      id="task"
+      required
+      [(ngModel)]="todo.task"
+      name="task"
+      #task="ngModel"
+    />
+    <div *ngIf="task.invalid && (task.dirty || task.touched)">
+      <div *ngIf="task.errors?.['required']">Task name is required.</div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="todoForm.form.invalid">Create</button>
+</form>
