@@ -1,0 +1,89 @@
+.mat-card-wrapper {
+  height: 80vh;
+  width: 80vw;
+  margin: auto;
+  position: relative !important;
+  top: 70px !important;
+  overflow: auto;
+}
+
+.page-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  height: 100%;
+  width: 100%;
+  position: relative !important;
+  top: 100px !important;
+  /* overflow: auto; */
+}
+
+.search-input-wrapper {
+  max-width: 500px;
+}
+
+mat-list {
+  width: 55%;
+
+  border-radius: 3%;
+  padding-bottom: 20px;
+}
+
+mat-list-item {
+  height: 100px !important;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 5px;
+}
+
+.task,
+.status {
+  cursor: pointer;
+}
+
+.task-card-wrapper {
+  width: 100%;
+}
+
+.task {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+
+  position: relative;
+  top: 10px;
+
+  text-wrap: wrap;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 230px;
+}
+
+.date {
+  font-size: 12px;
+}
+
+.status {
+  width: fit-content;
+}
+
+.button-wrapper {
+  padding: 15px;
+}
+
+.status-completed {
+  background-color: green !important;
+  color: white !important;
+}
+
+.status-pending {
+  background-color: orange !important;
+  color: white !important;
+}

@@ -1,8 +1,65 @@
-<div>
-  <h1>To-do List</h1>
-  <ul>
-    <li *ngFor="let todo of todos">
-      {{ todo.task }}
-    </li>
-  </ul>
-</div>
+<mat-card class="mat-card-wrapper">
+  <div class="page-wrapper">
+    <h1>To-do List</h1>
+
+    <div class="search-input-wrapper">
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input
+          matInput
+          placeholder="Type to-do name"
+          [(ngModel)]="query"
+          (input)="filterTodos()"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="button-wrapper">
+      <button mat-stroked-button color="accent" (click)="navigateToCreate()">
+        Create new To-Do
+      </button>
+    </div>
+
+    <div *ngIf="filteredTodos.length === 0; else todoList">
+      <p>No todos to display.</p>
+    </div>
+
+    <ng-template #todoList>
+      <mat-list>
+        <mat-list-item *ngFor="let todo of filteredTodos">
+          <mat-card appearance="outlined" class="task-card-wrapper">
+            <div class="task-wrapper">
+              <strong>
+                <p
+                  class="task"
+                  (click)="
+                    todo.id ? navigateToDetail(todo.id.toString()) : null
+                  "
+                >
+                  {{ todo.task }}
+                </p></strong
+              >
+              <p>
+                <span class="date">Created: {{ todo.createdAt | date }}</span>
+              </p>
+            </div>
+
+            <div class="status-wrapper">
+              <button
+                class="status"
+                mat-flat-button
+                (click)="toggleStatus(todo)"
+                [ngClass]="{
+              'status-completed': todo.status === 'completed',
+              'status-pending': todo.status === 'pending',
+            }"
+              >
+                {{ todo.status }}
+              </button>
+            </div>
+          </mat-card>
+        </mat-list-item>
+      </mat-list>
+    </ng-template>
+  </div>
+</mat-card>
