@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Todo } from "./todo.model";
 
 @Injectable({
   providedIn: "root",
@@ -22,7 +23,7 @@ export class TodoService {
     return this.http.post<any>(this.apiUrl, todo);
   }
 
-  updateTodoById(id: string, todo: any): Observable<any> {
+  updateTodoById(id: string, todo: Todo): Observable<Todo> {
     return this.http.patch<any>(`${this.apiUrl}/${id}`, todo);
   }
 
