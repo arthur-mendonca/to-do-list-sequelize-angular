@@ -1,1 +1,17 @@
-<p>todo-detail works!</p>
+<div>
+  <h2>Edit to-do</h2>
+  <form (ngSubmit)="updateTodo()">
+    <div>
+      <label for="task">Task</label>
+      <input
+        type="text"
+        id="task"
+        [(ngModel)]="todo.task"
+        name="task"
+        required
+      />
+    </div>
+    <button type="submit">Edit</button>
+  </form>
+  <button (click)="deleteTodo()">Delete</button>
+</div>
